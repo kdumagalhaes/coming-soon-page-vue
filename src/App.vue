@@ -1,11 +1,14 @@
 <template>
-    <h1>Salut, France!</h1>
+    <Logo />
 </template>
 
 <script>
+// components
+import { Logo } from '@/components/atoms'
+
 export default {
-    setup() {
-        return {}
+    components: {
+        Logo,
     },
 }
 </script>
