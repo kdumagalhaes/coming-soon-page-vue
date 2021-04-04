@@ -1,14 +1,14 @@
 <template>
-    <Logo />
+    <HeroTitle text="We're" strong="coming soon" />
 </template>
 
 <script>
 // components
-import { Logo } from '@/components/atoms'
+import { HeroTitle } from '@/components/atoms'
 
 export default {
     components: {
-        Logo,
+        HeroTitle,
     },
 }
 </script>
