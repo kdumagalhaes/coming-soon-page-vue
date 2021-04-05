@@ -1,20 +1,54 @@
 <template>
-    <form class="news-form" v-on:submit.prevent>
-        <input type="email" name="" id="" placeholder="Email Address" />
+    <form class="news-form" v-on:submit.prevent="checkEmail" novalidate>
+        <label for="email">Email</label>
+        <input
+            v-model="email"
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            autofocus
+            v-bind:class="[errors.length ? 'alert' : '']"
+        />
+        <img
+            class="error-icon"
+            src="@/assets/img/icon-error.svg"
+            alt="error icon"
+            v-if="errors.length"
+        />
         <button>
             <img src="@/assets/img/icon-arrow.svg" alt="send button" />
         </button>
+        <p v-if="errors.length">{{ errors[0] }}</p>
     </form>
 </template>
 
 <script>
-export default {}
+export default {
+    data() {
+        return {
+            errors: [],
+            email: null,
+        }
+    },
+
+    methods: {
+        checkEmail(email) {
+            this.erros = []
+            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+            if (!this.email) {
+                this.errors.push('Email is empty')
+            } else if (!re.test(email)) {
+                this.errors.push('Please provide a valid email')
+            }
+        },
+    },
+}
 </script>
 
 <style lang="scss" scoped>
 .news-form {
-    width: 400px;
-    position: absolute;
+    position: relative;
 
     input,
     button {
@@ -24,9 +58,8 @@ export default {}
 
     input {
         border: 1px solid $desaturated-red;
-        padding: 0 95px 0 20px;
+        padding-left: 30px;
         width: 100%;
-        position: absolute;
 
         &::placeholder {
             color: $desaturated-red;
@@ -38,8 +71,28 @@ export default {}
         width: 90px;
         background: $gradient2;
         border: none;
-        float: right;
-        position: relative;
+        position: absolute;
+        right: 0;
+    }
+
+    label {
+        font-size: 1px;
+    }
+
+    p {
+        color: red;
+        padding: 10px 30px;
+        font-size: 0.9rem;
+    }
+
+    .alert {
+        border: 1px solid red;
+    }
+
+    .error-icon {
+        position: absolute;
+        right: 100px;
+        top: 35px;
     }
 }
 </style>

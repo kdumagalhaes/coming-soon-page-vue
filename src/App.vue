@@ -1,14 +1,14 @@
 <template>
-    <NewsForm />
+    <MainTemplate />
 </template>
 
 <script>
 // components
-import { NewsForm } from '@/components/atoms'
+import MainTemplate from '@/components/templates/MainTemplate'
 
 export default {
     components: {
-        NewsForm,
+        MainTemplate,
     },
 }
 </script>
