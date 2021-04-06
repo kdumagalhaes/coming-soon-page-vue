@@ -1,11 +1,14 @@
 <template>
-    <h1>Salut, France!</h1>
+    <MainTemplate />
 </template>
 
 <script>
+// components
+import MainTemplate from '@/components/templates/MainTemplate'
+
 export default {
-    setup() {
-        return {}
+    components: {
+        MainTemplate,
     },
 }
 </script>
