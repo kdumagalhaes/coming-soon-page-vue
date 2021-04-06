@@ -80,19 +80,19 @@ export default {
     }
 
     p {
-        color: red;
+        color: $alert-red;
         padding: 10px 30px;
         font-size: 0.9rem;
     }
 
     .alert {
-        border: 2px solid red;
+        border: 2px solid $alert-red;
     }
 
     .error-icon {
         position: absolute;
         right: 100px;
-        top: 30px;
+        top: 29px;
     }
 }
 </style>
