@@ -21,5 +21,6 @@ export default {
 <style lang="scss" scoped>
 .main-template {
     display: flex;
+    height: 100vh;
 }
 </style>

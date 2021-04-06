@@ -18,7 +18,9 @@ export default {
     text-transform: uppercase;
     font-weight: $light;
     color: $desaturated-red;
-    font-size: 4rem;
+    font-size: 3.6rem;
+    letter-spacing: 1.5rem;
+    line-height: 4.4rem;
 
     strong {
         color: $dark-grayish-red;

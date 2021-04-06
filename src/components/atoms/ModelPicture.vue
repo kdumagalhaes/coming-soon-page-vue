@@ -8,6 +8,5 @@
 
 <style lang="scss" scoped>
 .model-picture {
-    width: 100%;
 }
 </style>

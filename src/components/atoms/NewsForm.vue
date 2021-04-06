@@ -1,24 +1,23 @@
 <template>
-    <form class="news-form" v-on:submit.prevent="checkEmail" novalidate>
+    <form class="news-form" v-on:submit.prevent novalidate>
         <label for="email">Email</label>
         <input
             v-model="email"
             type="email"
             name="email"
             placeholder="Email Address"
-            autofocus
-            v-bind:class="[errors.length ? 'alert' : '']"
+            v-bind:class="[!validEmail ? 'alert' : '']"
         />
         <img
             class="error-icon"
             src="@/assets/img/icon-error.svg"
             alt="error icon"
-            v-if="errors.length"
+            v-if="!validEmail"
         />
         <button>
             <img src="@/assets/img/icon-arrow.svg" alt="send button" />
         </button>
-        <p v-if="errors.length">{{ errors[0] }}</p>
+        <p v-if="!validEmail">Please provide a valid email</p>
     </form>
 </template>
 
@@ -26,21 +25,14 @@
 export default {
     data() {
         return {
-            errors: [],
-            email: null,
+            email: '',
+            regex: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
         }
     },
 
-    methods: {
-        checkEmail(email) {
-            this.erros = []
-            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
-            if (!this.email) {
-                this.errors.push('Email is empty')
-            } else if (!re.test(email)) {
-                this.errors.push('Please provide a valid email')
-            }
+    computed: {
+        validEmail() {
+            return this.regex.test(this.email)
         },
     },
 }
@@ -53,7 +45,7 @@ export default {
     input,
     button {
         border-radius: 50px;
-        height: 60px;
+        height: 50px;
     }
 
     input {
@@ -73,6 +65,14 @@ export default {
         border: none;
         position: absolute;
         right: 0;
+        -webkit-box-shadow: -9px 6px 15px 3px rgba(99, 52, 52, 0.24);
+        box-shadow: -9px 6px 15px 3px rgba(99, 52, 52, 0.24);
+        transition: 0.4s all;
+
+        &:hover {
+            -webkit-box-shadow: -9px 6px 15px -2px rgba(99, 52, 52, 0.24);
+            box-shadow: -9px 6px 15px -2px rgba(99, 52, 52, 0.24);
+        }
     }
 
     label {
@@ -86,13 +86,13 @@ export default {
     }
 
     .alert {
-        border: 1px solid red;
+        border: 2px solid red;
     }
 
     .error-icon {
         position: absolute;
         right: 100px;
-        top: 35px;
+        top: 30px;
     }
 }
 </style>

@@ -1,12 +1,14 @@
 <template>
     <main class="content-template">
-        <Logo />
-        <HeroTitle text="We're" strong="coming soon" />
-        <HeroParagraph
-            text="We're currently building our new fashion store. 
+        <div class="content-template__container">
+            <Logo />
+            <HeroTitle text="We're" strong="coming soon" />
+            <HeroParagraph
+                text="Hello fellow shoppers! We're currently building our new fashion store. 
             Add your email below to stay up-to-date with announcements and our launch deals."
-        />
-        <NewsForm />
+            />
+            <NewsForm />
+        </div>
     </main>
 </template>
 
@@ -25,8 +27,13 @@ export default {
 
 <style lang="scss" scoped>
 .content-template {
-    padding: 40px;
+    padding: 40px 220px;
     width: 100%;
-    max-width: 600px;
+    background-image: url('~@/assets/img/bg-pattern-desktop.svg');
+
+    .content_template__container {
+        width: 700px;
+        background-color: green;
+    }
 }
 </style>
