@@ -1,16 +1,14 @@
 <template>
-    <MainTemplate />
+    <MainContainer />
 </template>
 
 <script>
 // components
-import MainTemplate from '@/components/templates/MainTemplate'
+import { MainContainer } from '@/components/templates'
 
 export default {
     components: {
-        MainTemplate,
+        MainContainer,
     },
 }
 </script>
-
-<style lang="scss" scoped></style>

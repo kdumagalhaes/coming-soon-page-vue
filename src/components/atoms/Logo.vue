@@ -5,6 +5,5 @@
 <style lang="scss" scoped>
 .logo {
     width: 170px;
-    margin-bottom: 100px;
 }
 </style>

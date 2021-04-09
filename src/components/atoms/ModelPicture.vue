@@ -8,5 +8,6 @@
 
 <style lang="scss" scoped>
 .model-picture {
+    max-height: 100vh;
 }
 </style>
