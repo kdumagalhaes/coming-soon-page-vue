@@ -1,23 +1,26 @@
 <template>
-    <form class="news-form" v-on:submit.prevent novalidate>
+    <form class="news-form" v-on:submit.prevent="submitForm" novalidate>
         <label for="email">Email</label>
         <input
             v-model="email"
             type="email"
             name="email"
             placeholder="Email Address"
-            v-bind:class="[!validEmail ? 'alert' : '']"
+            v-bind:class="[errors.length ? 'alert' : '']"
+            @blur="errors = []"
         />
         <img
             class="error-icon"
             src="@/assets/img/icon-error.svg"
             alt="error icon"
-            v-if="!validEmail"
+            v-if="errors.length"
         />
         <button>
             <img src="@/assets/img/icon-arrow.svg" alt="send button" />
         </button>
-        <p v-if="!validEmail">Please provide a valid email</p>
+        <p v-if="errors.length">
+            {{ errors[0] }}
+        </p>
     </form>
 </template>
 
@@ -25,14 +28,23 @@
 export default {
     data() {
         return {
-            email: '',
             regex: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            errors: [],
+            email: null,
         }
     },
 
-    computed: {
-        validEmail() {
-            return this.regex.test(this.email)
+    methods: {
+        submitForm() {
+            this.errors = []
+            if (!this.validEmail(this.email)) {
+                this.errors.push('Please provide a valid email')
+            } else {
+                this.errors = []
+            }
+        },
+        validEmail(email) {
+            return this.regex.test(email)
         },
     },
 }
