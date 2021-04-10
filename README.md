@@ -1,24 +1,14 @@
-# coming-soon-page-vue
+# Coming soon page using VueJS!
 
-## Project setup
-```
-yarn install
-```
+The Base Apparel coming soon page is a challenge from the Frontend Mentor platform! :)
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+![](screencapture-coming-soon-page-vue-kdumagalhaes-vercel-app-2021-04-10-12_24_30.png)
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## My tools:
+- [x] VueJS;
+- [x] Manual form validation (without libs);
+- [x] SCSS;
+- [x] Atomic Design principles;
 
-### Lints and fixes files
-```
-yarn lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+**You can see the live demo and give feedbacks on the [FrontendMentor's page](https://www.frontendmentor.io/solutions/coming-soon-page-using-vuejs-9Y7_pmtji).**
