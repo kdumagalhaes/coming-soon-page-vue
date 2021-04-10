@@ -26,4 +26,13 @@ export default {
         color: $dark-grayish-red;
     }
 }
+
+@media only screen and (max-width: $mobile) {
+    .hero-title {
+        text-align: center;
+        letter-spacing: 0;
+        line-height: 3.3rem;
+        font-size: 3rem;
+    }
+}
 </style>

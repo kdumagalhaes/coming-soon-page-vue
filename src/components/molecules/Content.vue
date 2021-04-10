@@ -26,9 +26,10 @@ export default {
 <style lang="scss" scoped>
 .content {
     width: 100%;
-    max-width: 450px;
+    max-width: 470px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 0 20px;
 }
 </style>

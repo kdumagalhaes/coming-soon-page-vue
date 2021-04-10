@@ -19,4 +19,11 @@ export default {
     margin: 20px 0;
     font-weight: $semi-bold;
 }
+@media only screen and (max-width: $mobile) {
+    .hero-paragraph {
+        text-align: center;
+        font-size: 0.88rem;
+        line-height: 22px;
+    }
+}
 </style>
