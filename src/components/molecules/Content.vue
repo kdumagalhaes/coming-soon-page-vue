@@ -1,8 +1,5 @@
 <template>
     <div class="content">
-        <header class="content__logo">
-            <Logo />
-        </header>
         <div class="content__text">
             <HeroTitle text="We're" strong="coming soon" />
             <HeroParagraph
@@ -15,14 +12,13 @@
 
 <script>
 //atoms
-import { HeroTitle, HeroParagraph, NewsForm, Logo } from '@/components/atoms'
+import { HeroTitle, HeroParagraph, NewsForm } from '@/components/atoms'
 
 export default {
     components: {
         HeroTitle,
         HeroParagraph,
         NewsForm,
-        Logo,
     },
 }
 </script>
@@ -30,17 +26,10 @@ export default {
 <style lang="scss" scoped>
 .content {
     width: 100%;
-    max-width: 450px;
-    margin: 40px;
+    max-width: 470px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    .content__logo {
-        margin-bottom: 100px;
-    }
-
-    .content__text {
-    }
+    padding: 0 20px;
 }
 </style>

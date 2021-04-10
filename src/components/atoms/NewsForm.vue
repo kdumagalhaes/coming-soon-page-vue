@@ -107,4 +107,9 @@ export default {
         top: 29px;
     }
 }
+@media only screen and (max-width: $mobile) {
+    .news-form {
+        margin-bottom: 40px;
+    }
+}
 </style>
